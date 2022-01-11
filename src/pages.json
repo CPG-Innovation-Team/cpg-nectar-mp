@@ -31,29 +31,29 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#007AFF",
+		"color": "#B3B3B3",
+		"selectedColor": "#105B63",
 		"borderStyle": "black",
 		"backgroundColor": "#FFFFFF",
 		"list": [{
 			"pagePath": "pages/index/index",
 			"iconPath": "static/tabbar/ico-home.png",
-			"selectedIconPath": "static/tabbar/ico-home.png",
+			"selectedIconPath": "static/tabbar/ico-home-active.png",
 			"text": "首页"
 		}, {
 			"pagePath": "pages/category/category",
 			"iconPath": "static/tabbar/ico-category.png",
-			"selectedIconPath": "static/tabbar/ico-category.png",
+			"selectedIconPath": "static/tabbar/ico-category-active.png",
 			"text": "分类"
 		}, {
 			"pagePath": "pages/shoppingCart/shoppingCart",
 			"iconPath": "static/tabbar/ico-shopping-cart.png",
-			"selectedIconPath": "static/tabbar/ico-shopping-cart.png",
+			"selectedIconPath": "static/tabbar/ico-shopping-cart-active.png",
 			"text": "购物车"
 		}, {
 			"pagePath": "pages/myProfile/myProfile",
 			"iconPath": "static/tabbar/ico-user.png",
-			"selectedIconPath": "static/tabbar/ico-user.png",
+			"selectedIconPath": "static/tabbar/ico-user-active.png",
 			"text": "我的"
 		}]
 	}
