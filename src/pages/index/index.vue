@@ -14,17 +14,20 @@
     </swiper>
     <category-block />
     <member-exclusive />
+    <product-preview />
   </view>
 </template>
 
 <script lang="ts">
 import CategoryBlock from '@/components/categoryBlock.vue';
 import MemberExclusive from '@/components/index/memberExclusive.vue';
+import ProductPreview from '@/components/index/productPreview.vue';
 
 export default {
   components: {
     CategoryBlock,
     MemberExclusive,
+    ProductPreview,
   }
 }
 </script>
