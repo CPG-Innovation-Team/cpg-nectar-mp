@@ -1,5 +1,6 @@
 <template>
   <view class="index-page">
+    <view class="background-layer" />
     <swiper class="swiper" indicator-dots autoplay>
       <swiper-item>
         <image class="swiper-image" src="/static/img-banner1.jpg"></image>
@@ -36,6 +37,14 @@ export default {
   justify-content: center;
   padding-bottom: 80rpx;
   background-color: #E5E5E5;
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 336rpx;
+  background-color: #105B63;
 }
 
 .swiper {
