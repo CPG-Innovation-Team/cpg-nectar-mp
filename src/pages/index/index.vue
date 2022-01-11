@@ -1,6 +1,16 @@
 <template>
   <view class="index-page">
-    <image class="logo" src="/static/ico-logo.png" />
+    <swiper class="swiper" indicator-dots autoplay>
+      <swiper-item>
+        <image class="swiper-image" src="/static/img-banner1.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="swiper-image" src="/static/img-banner2.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="swiper-image" src="/static/img-banner3.jpg"></image>
+      </swiper-item>
+    </swiper>
     <category-block />
     <member-exclusive />
   </view>
@@ -28,13 +38,16 @@ export default {
   background-color: #E5E5E5;
 }
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
+.swiper {
+  margin-top: 16rpx;
+  width: 688rpx;
+  height: 396rpx;
+  border-radius: 32rpx;
+  
+  .swiper-image {
+    width: 688rpx;
+    height: 396rpx;
+    border-radius: 32rpx;
+  }
 }
-
 </style>

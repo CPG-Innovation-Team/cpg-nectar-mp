@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 16rpx;
     width: 686rpx;
     
     .category-item {
