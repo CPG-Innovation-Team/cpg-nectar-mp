@@ -1,18 +1,15 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
-    </view>
+    <image class="logo" src="/static/ico-logo.png" />
+    <category-block />
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const title = ref('Hello')
+import CategoryBlock from '@/components/categoryBlock.vue';
 </script>
 
-<style>
+<style lang="scss" scoped>
 .content {
   display: flex;
   flex-direction: column;
@@ -29,13 +26,4 @@ const title = ref('Hello')
   margin-bottom: 50rpx;
 }
 
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
 </style>
