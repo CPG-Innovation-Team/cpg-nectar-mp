@@ -1,20 +1,31 @@
 <template>
-  <view class="content">
+  <view class="index-page">
     <image class="logo" src="/static/ico-logo.png" />
     <category-block />
+    <member-exclusive />
   </view>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import CategoryBlock from '@/components/categoryBlock.vue';
+import MemberExclusive from '@/components/index/memberExclusive.vue';
+
+export default {
+  components: {
+    CategoryBlock,
+    MemberExclusive,
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-.content {
+.index-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 80rpx;
+  background-color: #E5E5E5;
 }
 
 .logo {
