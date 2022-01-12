@@ -1,5 +1,24 @@
 <template>
-  <view class="product-preview">
+  <view class="product-preview-tab">
+    <view class="tab-item active">
+      <view class="tab-title">精选好物</view>
+      <view class="tab-detail">热卖推荐</view>
+    </view>
+    <view class="tab-item">
+      <view class="tab-title">精品抢购</view>
+      <view class="tab-detail">每月惊爆单品</view>
+    </view>
+    <view class="tab-item">
+      <view class="tab-title">多买优惠</view>
+      <view class="tab-detail">两瓶12元/买一送一</view>
+    </view>
+    <view class="tab-item">
+      <view class="tab-title">正大百年</view>
+      <view class="tab-detail">独家商品</view>
+    </view>
+  </view>
+  
+  <view class="product-preview-block">
     <view class="product-item">
       <image class="product-image" src="/static/product/img-product1.png" />
       <view class="product-name">森蜂园-蜂王浆</view>
@@ -47,7 +66,42 @@
 </script>
 
 <style lang="scss" scoped>
-.product-preview {
+.product-preview-tab {
+  display: flex;
+  justify-content: space-around;
+  width: 688rpx;
+  margin: 40rpx auto 0 auto;
+  
+  .tab-item {
+    text-align: center;
+    color: #1A2632;
+
+    .tab-title {
+      font-size: 30rpx;
+      font-weight: bold;
+    }
+    
+    .tab-detail {
+      display: inline-flex;
+      padding: 2rpx 10rpx;
+      font-size: 18rpx;
+    }
+
+    &.active {
+      .tab-title {
+        color: #105B63;
+      }
+      
+      .tab-detail {
+        border-radius: 10rpx;
+        background-color: #105B63;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+.product-preview-block {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
