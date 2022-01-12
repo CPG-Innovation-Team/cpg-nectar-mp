@@ -36,6 +36,7 @@
     
     .category-item {
       width: 120rpx;
+      line-height: 28rpx;
       text-align: center;
   
       .category-icon {

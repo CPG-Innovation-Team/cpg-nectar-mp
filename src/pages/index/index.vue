@@ -40,7 +40,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding-bottom: 80rpx;
-  background-color: #E5E5E5;
+  background-color: #FAF9FF;
 }
 
 .background-layer {
