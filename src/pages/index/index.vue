@@ -13,6 +13,7 @@
       </swiper-item>
     </swiper>
     <category-block />
+    <view class="title-text">会员专区</view>
     <member-exclusive />
     <product-preview />
   </view>
@@ -61,5 +62,12 @@ export default {
     height: 396rpx;
     border-radius: 32rpx;
   }
+}
+
+.title-text {
+  width: 100%;
+  margin: 32rpx 0 0 64rpx;
+  font-weight: 600;
+  font-size: 48rpx;
 }
 </style>
