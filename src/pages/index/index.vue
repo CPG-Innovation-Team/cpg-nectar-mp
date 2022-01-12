@@ -65,8 +65,8 @@ export default {
 }
 
 .title-text {
-  width: 100%;
-  margin: 32rpx 0 0 64rpx;
+  align-self: start;
+  margin: 32rpx 0 0 32rpx;
   font-weight: 600;
   font-size: 48rpx;
 }
