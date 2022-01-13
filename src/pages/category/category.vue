@@ -58,13 +58,9 @@
   </view>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import CategoryBlock from '@/components/categoryBlock.vue';
 import priceLabel from '@/components/priceLabel.vue';
-
-export default {
-  components: { CategoryBlock, priceLabel }
-}
 </script>
 
 <style lang="scss" scoped>

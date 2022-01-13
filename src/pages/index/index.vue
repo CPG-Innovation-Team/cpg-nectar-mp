@@ -19,18 +19,10 @@
   </view>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import CategoryBlock from '@/components/categoryBlock.vue';
 import MemberExclusive from '@/components/index/memberExclusive.vue';
 import ProductPreview from '@/components/index/productPreview.vue';
-
-export default {
-  components: {
-    CategoryBlock,
-    MemberExclusive,
-    ProductPreview,
-  }
-}
 </script>
 
 <style lang="scss" scoped>
