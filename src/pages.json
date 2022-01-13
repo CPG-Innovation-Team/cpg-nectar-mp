@@ -28,7 +28,8 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "正大蜜城",
 		"navigationBarBackgroundColor": "#105B63",
-		"backgroundColor": "#F8F8F8"
+    "backgroundColorTop": "#105B63",
+		"backgroundColor": "#FAF9FF"
 	},
 	"tabBar": {
 		"color": "#B3B3B3",
