@@ -22,10 +22,7 @@
           <view class="product-content">
             <view class="product-name">森蜂园-蜂王浆</view>
             <view class="product-detail">特别特别好的蜂王浆</view>
-            <view class="product-price-block">
-              <text class="price-label">会员价</text>
-              <text class="price-text">￥5.22</text>
-            </view>            
+            <price-label price="5.22" />
           </view>
           <view class="add-cart-button">+</view>
         </view>
@@ -34,10 +31,7 @@
           <view class="product-content">
             <view class="product-name">蜂胶银杏软胶囊</view>
             <view class="product-detail">超级补</view>
-            <view class="product-price-block">
-              <text class="price-label">会员价</text>
-              <text class="price-text">￥36.88</text>
-            </view>
+            <price-label price="36.88" />
           </view>
           <view class="add-cart-button">+</view>
         </view>
@@ -46,10 +40,7 @@
           <view class="product-content">
             <view class="product-name">茶花蜂花粉</view>
             <view class="product-detail">可能是最好的花粉</view>
-            <view class="product-price-block">
-              <text class="price-label">会员价</text>
-              <text class="price-text">￥998.00</text>
-            </view>
+            <price-label price="998.00" />
           </view>
           <view class="add-cart-button">+</view>
         </view>
@@ -58,10 +49,7 @@
           <view class="product-content">
             <view class="product-name">长白山椴树原蜜</view>
             <view class="product-detail">特别特别好的蜂王浆</view>
-            <view class="product-price-block">
-              <text class="price-label">会员价</text>
-              <text class="price-text">￥15.22</text>
-            </view>
+            <price-label price="15.22" />
           </view>
           <view class="add-cart-button">+</view>
         </view>
@@ -72,11 +60,11 @@
 
 <script lang="ts">
 import CategoryBlock from '@/components/categoryBlock.vue';
+import priceLabel from '@/components/priceLabel.vue';
 
 export default {
-  components: { CategoryBlock }
+  components: { CategoryBlock, priceLabel }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -155,31 +143,7 @@ export default {
       font-size: 24rpx;
       
     }
-    .product-price-block {
-      display: inline-flex;
-      align-items: center;
-      margin: 24rpx 0 0 24rpx;
-      padding-right: 12rpx;
-      height: 38rpx;
-      border-radius: 16rpx;
-      background-color: #F3EDDF;
-      
-      .price-label {
-        width: 38rpx;
-        height: 18rpx;
-        padding: 10rpx;
-        border-radius: 16rpx;
-        background-color: #1A2632;
-        color: #FFFFFF;
-        font-size: 13rpx;
-      }
-      .price-text {
-        margin-left: 10rpx;
-        color: #FC3D54;
-        font-size: 18rpx;
-        font-weight: bold;
-      }  
-    }
+
     .add-cart-button {
       position: absolute;
       bottom: 0;
