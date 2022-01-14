@@ -1,8 +1,9 @@
 <template>
   <view class="index-page">
     <view class="background-layer" />
+    <video id="intro-video" src="https://static.cpgroup.top/video-intro.mp4" />
     <swiper class="swiper" indicator-dots autoplay>
-      <swiper-item>
+      <swiper-item @click="playVideo">
         <image class="swiper-image" src="/static/img-banner1.jpg"></image>
       </swiper-item>
       <swiper-item>
@@ -23,6 +24,12 @@
 import CategoryBlock from '@/components/categoryBlock.vue';
 import MemberExclusive from '@/components/index/memberExclusive.vue';
 import ProductPreview from '@/components/index/productPreview.vue';
+
+const playVideo = () => {
+  const videoContext = uni.createVideoContext('intro-video');
+  videoContext.requestFullScreen();
+  videoContext.play();
+};
 </script>
 
 <style lang="scss" scoped>
@@ -61,5 +68,9 @@ import ProductPreview from '@/components/index/productPreview.vue';
   margin: 32rpx 0 0 32rpx;
   font-weight: 600;
   font-size: 48rpx;
+}
+
+#intro-video {
+  display: none;
 }
 </style>
