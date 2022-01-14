@@ -1,29 +1,14 @@
 <template>
   <view class="category-block">
-  	<view class="category-item">
-      <image class="category-icon" src="/static/category/ico-manuka.png"></image>
-      <text class="category-text">麦卢卡蜂蜜</text>
-    </view>
-    <view class="category-item">
-      <image class="category-icon" src="/static/category/ico-forest-honey.png"></image>
-      <text class="category-text">森林蜜</text>
-    </view>
-    <view class="category-item">
-      <image class="category-icon" src="/static/category/ico-pollen.png"></image>
-      <text class="category-text">花粉</text>
-    </view>
-    <view class="category-item">
-      <image class="category-icon" src="/static/category/ico-royal-jelly.png"></image>
-      <text class="category-text">蜂王浆</text>
-    </view>
-    <view class="category-item">
-      <image class="category-icon" src="/static/category/ico-gift-box.png"></image>
-      <text class="category-text">礼盒</text>
+  	<view class="category-item" v-for="item in categoryList" :key="item.id">
+      <image class="category-icon" :src="item.image"></image>
+      <text class="category-text">{{ item.name }}</text>
     </view>
   </view>
 </template>
 
-<script>
+<script lang="ts" setup>
+import { categoryList } from '@/data/data.js';
 </script>
 
 <style lang="scss" scoped>

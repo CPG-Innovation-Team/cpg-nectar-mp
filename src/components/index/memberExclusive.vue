@@ -1,37 +1,17 @@
 <template>
   <view class="member-exclusive-block">
-    <view class="product-item">
-      <image class="product-image" src="/static/product/img-product1.png"></image>
+    <view class="product-item" v-for="item in memberProduct" :key="item.id">
+      <image class="product-image" :src="item.image"></image>
       <view class="product-detail">
         <text class="price-label">会员价</text>
-        <text class="price-text">￥5.22</text>
-      </view>
-    </view>
-    <view class="product-item">
-      <image class="product-image" src="/static/product/img-product2.png"></image>
-      <view class="product-detail">
-        <text class="price-label">会员价</text>
-        <text class="price-text">￥3.22</text>
-      </view>
-    </view>
-    <view class="product-item">
-      <image class="product-image" src="/static/product/img-product3.png"></image>
-      <view class="product-detail">
-        <text class="price-label">会员价</text>
-        <text class="price-text">￥65.22</text>
-      </view>
-    </view>
-    <view class="product-item">
-      <image class="product-image" src="/static/product/img-product4.png"></image>
-      <view class="product-detail">
-        <text class="price-label">会员价</text>
-        <text class="price-text">￥35.22</text>
+        <text class="price-text">￥{{ item.price }}</text>
       </view>
     </view>
   </view>
 </template>
 
-<script>
+<script lang="ts" setup>
+import { memberProduct } from '@/data/data.js';
 </script>
 
 <style lang="scss" scoped>
