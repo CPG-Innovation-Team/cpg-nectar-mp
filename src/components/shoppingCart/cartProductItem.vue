@@ -1,10 +1,10 @@
 <template>
   <view class="cart-item">
-    <view class="cart-checkbox" />
-    <image class="product-image" :src="props.image" />
+    <image class="cart-checkbox" :src="checkboxImage" @click="checkTrigger" />
+    <image class="product-image" :src="image" />
     <view class="product-content-block">
       <view class="product-content-row">
-        <text class="product-name">{{ props.name }}</text>
+        <text class="product-name">{{ name }}</text>
         <image class="remove-icon" src="/static/ico-trash.svg" />  
       </view>
       <view class="product-content-row">
@@ -13,18 +13,41 @@
           <text class="amount-single-box amount-number">1</text>
           <button class="amount-single-box amount-adjust-button">+</button>
         </view>
-        <text class="price-text">￥{{ props.price }}</text>
+        <text class="price-text">￥{{ price }}</text>
       </view>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps({
-	name: String,
-  image: String,
-  price: String,
-});
+import { ref, watch } from 'vue';
+
+interface IProps {
+  name: string;
+  image: string;
+  price: string;
+}
+const { name, image, price } = defineProps<IProps>();
+
+const checkedImage = '/static/ico-checkbox-checked.svg';
+const noCheckedImage = '/static/ico-checkbox.svg'
+
+const isChecked: boolean = ref(true);
+const checkboxImage: string = ref(checkedImage);
+
+watch(isChecked, (isChecked: boolean): void => {
+  if (isChecked) {
+    checkboxImage.value = checkedImage;
+  } else {
+    checkboxImage.value = noCheckedImage;
+  }
+})
+
+const checkTrigger = (): void => {
+  isChecked.value = !isChecked.value;
+  console.log(isChecked.value);
+};
+
 </script>
 
 <style lang="scss" scoped>
@@ -40,8 +63,7 @@ const props = defineProps({
   .cart-checkbox {
     width: 48rpx;
     height: 48rpx;
-    border: 4rpx solid #105B63;
-    border-radius: 18rpx;
+    padding: 20rpx;
   }
   
   .product-image {
