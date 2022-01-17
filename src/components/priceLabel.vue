@@ -1,18 +1,15 @@
 <template>
   <view class="price-label-block">
     <text class="price-label">会员价</text>
-    <text class="price-text">￥{{ price }}</text>
+    <text class="price-text">￥{{ props.price }}</text>
   </view>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'priceLabel',
-  props: {
-    price: String,
-  },
-});
+<script lang="ts" setup>
+interface IProps {
+  price: String;
+}
+const props = defineProps<IProps>();
 </script>
 
 <style lang="scss" scoped>

@@ -1,11 +1,11 @@
 <template>
   <view class="cart-item">
     <image class="cart-checkbox" :src="checkboxImage" @click="checkTrigger" />
-    <image class="product-image" :src="image" />
+    <image class="product-image" :src="props.image" />
     <view class="product-content-block">
       <view class="product-content-row">
-        <text class="product-name">{{ name }}</text>
-        <image class="remove-icon" src="/static/ico-trash.svg" />  
+        <text class="product-name">{{ props.name }}</text>
+        <image class="remove-icon" src="/static/ico-trash.svg" />
       </view>
       <view class="product-content-row">
         <view class="product-amount-block">
@@ -13,7 +13,7 @@
           <text class="amount-single-box amount-number">1</text>
           <button class="amount-single-box amount-adjust-button">+</button>
         </view>
-        <text class="price-text">￥{{ price }}</text>
+        <text class="price-text">￥{{ props.price }}</text>
       </view>
     </view>
   </view>
@@ -27,27 +27,25 @@ interface IProps {
   image: string;
   price: string;
 }
-const { name, image, price } = defineProps<IProps>();
+const props = defineProps<IProps>();
 
 const checkedImage = '/static/ico-checkbox-checked.svg';
-const noCheckedImage = '/static/ico-checkbox.svg'
+const noCheckedImage = '/static/ico-checkbox.svg';
 
-const isChecked: boolean = ref(true);
-const checkboxImage: string = ref(checkedImage);
+const isChecked = ref(true);
+const checkboxImage = ref(checkedImage);
 
-watch(isChecked, (isChecked: boolean): void => {
-  if (isChecked) {
+watch(isChecked, (value): void => {
+  if (value) {
     checkboxImage.value = checkedImage;
   } else {
     checkboxImage.value = noCheckedImage;
   }
-})
+});
 
 const checkTrigger = (): void => {
   isChecked.value = !isChecked.value;
-  console.log(isChecked.value);
 };
-
 </script>
 
 <style lang="scss" scoped>
@@ -59,13 +57,13 @@ const checkTrigger = (): void => {
   margin: 0 32rpx;
   padding: 16rpx;
   border-bottom: 2rpx solid rgba(0, 0, 0, 0.1);
-  
+
   .cart-checkbox {
     width: 48rpx;
     height: 48rpx;
     padding: 20rpx;
   }
-  
+
   .product-image {
     display: block;
     width: 160rpx;
@@ -76,7 +74,7 @@ const checkTrigger = (): void => {
     flex-direction: column;
     width: 400rpx;
     height: 160rpx;
-    
+
     .product-content-row {
       display: flex;
       justify-content: space-between;
@@ -84,14 +82,14 @@ const checkTrigger = (): void => {
       flex: 1;
       width: 400rpx;
     }
-    
+
     .product-name {
       height: 60rpx;
       line-height: 60rpx;
       margin-top: 10rpx;
       font-size: 28rpx;
     }
-    
+
     .remove-icon {
       width: 32rpx;
       height: 32rpx;
@@ -111,20 +109,20 @@ const checkTrigger = (): void => {
         padding: 0;
         border-radius: 18rpx;
         text-align: center;
-        
+
         &.amount-adjust-button {
-          background-color: #105B63;
-          color: #FFFFFF;
+          background-color: #105b63;
+          color: #ffffff;
           font-size: 32rpx;
         }
         &.amount-number {
-          background-color: #EBEAEF;
+          background-color: #ebeaef;
           color: #000000;
           font-size: 20rpx;
-        }  
-      }      
+        }
+      }
     }
-    
+
     .price-text {
       font-size: 32rpx;
     }

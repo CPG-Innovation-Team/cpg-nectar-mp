@@ -39,7 +39,7 @@ const playVideo = () => {
   align-items: center;
   justify-content: center;
   padding-bottom: 80rpx;
-  background-color: #FAF9FF;
+  background-color: #faf9ff;
 }
 
 .background-layer {
@@ -47,7 +47,7 @@ const playVideo = () => {
   top: 0;
   width: 100vw;
   height: 336rpx;
-  background-color: #105B63;
+  background-color: #105b63;
 }
 
 .swiper {
@@ -55,7 +55,7 @@ const playVideo = () => {
   width: 688rpx;
   height: 396rpx;
   border-radius: 32rpx;
-  
+
   .swiper-image {
     width: 688rpx;
     height: 396rpx;
