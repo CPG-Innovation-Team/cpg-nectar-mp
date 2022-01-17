@@ -1,9 +1,7 @@
 <template>
-	<view>MyProfile</view>
+  <view>MyProfile</view>
 </template>
 
-<script lang="ts">
-</script>
+<script lang="ts"></script>
 
-<style>
-</style>
+<style></style>

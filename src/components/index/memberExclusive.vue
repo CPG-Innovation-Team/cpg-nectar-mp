@@ -22,40 +22,40 @@ import { memberProduct } from '@/data/data.js';
   justify-content: space-between;
   margin-top: 16rpx;
   width: 686rpx;
-  
+
   .product-item {
     width: 140rpx;
     height: 166rpx;
     padding: 12rpx;
     border-radius: 16rpx;
     box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.08);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     text-align: center;
   }
-  
+
   .product-image {
     width: 132rpx;
     height: 102rpx;
   }
-  
+
   .product-detail {
     display: flex;
     align-items: center;
     justify-content: space-around;
     text-align: center;
     margin-top: 28rpx;
-  
+
     .price-label {
       width: 38rpx;
       height: 18rpx;
       padding: 5rpx 10rpx;
       border-radius: 16rpx;
-      background-color: #1A2632;
-      color: #FFFFFF;
+      background-color: #1a2632;
+      color: #ffffff;
       font-size: 13rpx;
     }
     .price-text {
-      color: #FC3D54;
+      color: #fc3d54;
       font-size: 18rpx;
       font-weight: bold;
     }

@@ -1,5 +1,5 @@
 <template>
-	<view class="category-page">
+  <view class="category-page">
     <category-block />
     <view class="product-container">
       <view class="sub-category-list">
@@ -70,13 +70,13 @@ import priceLabel from '@/components/priceLabel.vue';
   align-items: center;
   justify-content: space-between;
   margin-top: 16rpx;
-  background-color: #FAF9FF;
-  
+  background-color: #faf9ff;
+
   .product-container {
     display: flex;
     flex-direction: row;
     margin-top: 40rpx;
-    
+
     .sub-category-list {
       width: 152rpx;
 
@@ -85,28 +85,28 @@ import priceLabel from '@/components/priceLabel.vue';
         line-height: 46rpx;
         padding: 14rpx 0 14rpx 44rpx;
         font-size: 20rpx;
-        
+
         .sub-category-text {
           padding: 2rpx 4rpx;
         }
-        
+
         &.active {
-          background-color: #FFFFFF;
+          background-color: #ffffff;
           font-size: 24rpx;
           .sub-category-text {
-            border-bottom: 6rpx solid #105B63;
+            border-bottom: 6rpx solid #105b63;
           }
         }
       }
     }
-    
+
     .product-list {
       width: 574rpx;
       padding: 36rpx 0 36rpx 24rpx;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
     }
   }
-  
+
   .product-item {
     position: relative;
     display: flex;
@@ -115,9 +115,9 @@ import priceLabel from '@/components/priceLabel.vue';
     height: 212rpx;
     margin-bottom: 20rpx;
     border-radius: 32rpx;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     box-shadow: 0 20rpx 40rpx rgba(0, 0, 0, 0.08);
-    
+
     .product-image {
       margin: 16rpx;
       width: 156rpx;
@@ -127,7 +127,7 @@ import priceLabel from '@/components/priceLabel.vue';
       justify-content: space-between;
       margin: 20rpx 20rpx 20rpx 0;
     }
-    
+
     .product-name {
       margin-left: 24rpx;
       height: 32rpx;
@@ -137,7 +137,6 @@ import priceLabel from '@/components/priceLabel.vue';
       margin: 16rpx 0 0 24rpx;
       height: 28rpx;
       font-size: 24rpx;
-      
     }
 
     .add-cart-button {
@@ -149,12 +148,11 @@ import priceLabel from '@/components/priceLabel.vue';
       line-height: 80rpx;
       border-top-left-radius: 32rpx;
       border-bottom-right-radius: 32rpx;
-      background-color: #105B63;
-      color: #FFFFFF;
+      background-color: #105b63;
+      color: #ffffff;
       font-size: 64rpx;
       text-align: center;
     }
   }
 }
-
 </style>
