@@ -1,13 +1,24 @@
 <template>
   <view class="shopping-cart-page">
     <view class="cart-product-list">
-      <cart-product-item name="青椒" image="/static/product/img-product1.png" price="18" />
-      <cart-product-item name="鸡胸肉" image="/static/product/img-product2.png" price="688.88" />
+      <cart-product-item
+        v-for="(item, key) in cartList"
+        :key="key"
+        :id="key"
+        :name="item.name"
+        :image="item.image"
+        :price="item.unitPrice * item.amount"
+        :amount="item.amount"
+        :checked="item.checked"
+        :onCheckedClick="onCheckedClick"
+        :onAmountChange="onAmountChange"
+        :onItemRemove="onItemRemove"
+      />
     </view>
     <view class="cart-status-block">
       <view>
-        <text class="cart-amount-text">共5件 总计</text>
-        <text class="cart-price-text">￥70</text>
+        <text class="cart-amount-text">共{{ totalAmount }}件 总计</text>
+        <text class="cart-price-text">￥{{ totalPrice }}</text>
       </view>
       <button class="checkout-button">结账</button>
     </view>
@@ -15,7 +26,45 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, reactive, watch, onMounted } from 'vue';
 import cartProductItem from '@/components/shoppingCart/cartProductItem.vue';
+
+const { cartList } = reactive(getApp().globalData);
+const totalAmount = ref(0);
+const totalPrice = ref(0);
+
+const calcAmountPrice = () => {
+  let amountAccumulator = 0;
+  let priceAccumulator = 0;
+  Object.values(cartList).forEach((item) => {
+    if (item.checked) {
+      amountAccumulator += item.amount;
+      priceAccumulator += item.unitPrice * item.amount;
+    }
+  });
+
+  totalAmount.value = amountAccumulator;
+  totalPrice.value = priceAccumulator;
+};
+
+onMounted(calcAmountPrice);
+watch(cartList, () => {
+  calcAmountPrice();
+});
+
+const onCheckedClick = (id: string): void => {
+  cartList[id].checked = !cartList[id].checked;
+};
+
+const onAmountChange = (id: string, amountNumber: number): void => {
+  if (cartList[id].amount + amountNumber > 0) {
+    cartList[id].amount += amountNumber;
+  }
+};
+
+const onItemRemove = (id: string): void => {
+  delete cartList[id];
+};
 </script>
 
 <style lang="scss" scoped>

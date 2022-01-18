@@ -1,17 +1,21 @@
 <template>
   <view class="cart-item">
-    <image class="cart-checkbox" :src="checkboxImage" @click="checkTrigger" />
+    <image
+      class="cart-checkbox"
+      :src="props.checked ? checkedImage : noCheckedImage"
+      @click="onCheckedClick(props.id)"
+    />
     <image class="product-image" :src="props.image" />
     <view class="product-content-block">
       <view class="product-content-row">
         <text class="product-name">{{ props.name }}</text>
-        <image class="remove-icon" src="/static/ico-trash.svg" />
+        <image class="remove-icon" src="/static/ico-trash.svg" @click="onItemRemove(props.id)" />
       </view>
       <view class="product-content-row">
         <view class="product-amount-block">
-          <button class="amount-single-box amount-adjust-button">-</button>
-          <text class="amount-single-box amount-number">1</text>
-          <button class="amount-single-box amount-adjust-button">+</button>
+          <button class="amount-single-box amount-adjust-button" @click="onAmountChange(props.id, -1)">-</button>
+          <text class="amount-single-box amount-number">{{ props.amount }}</text>
+          <button class="amount-single-box amount-adjust-button" @click="onAmountChange(props.id, 1)">+</button>
         </view>
         <text class="price-text">￥{{ props.price }}</text>
       </view>
@@ -20,32 +24,21 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
-
 interface IProps {
+  id: string;
   name: string;
   image: string;
-  price: string;
+  price: number;
+  amount: number;
+  checked: boolean;
+  onCheckedClick: () => void;
+  onAmountChange: () => void;
+  onItemRemove: () => void;
 }
 const props = defineProps<IProps>();
 
 const checkedImage = '/static/ico-checkbox-checked.svg';
 const noCheckedImage = '/static/ico-checkbox.svg';
-
-const isChecked = ref(true);
-const checkboxImage = ref(checkedImage);
-
-watch(isChecked, (value): void => {
-  if (value) {
-    checkboxImage.value = checkedImage;
-  } else {
-    checkboxImage.value = noCheckedImage;
-  }
-});
-
-const checkTrigger = (): void => {
-  isChecked.value = !isChecked.value;
-};
 </script>
 
 <style lang="scss" scoped>
