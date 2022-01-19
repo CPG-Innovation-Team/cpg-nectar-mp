@@ -4,13 +4,13 @@
     <video id="intro-video" src="https://static.cpgroup.top/video-intro.mp4" />
     <swiper class="swiper" indicator-dots autoplay>
       <swiper-item @click="playVideo">
-        <image class="swiper-image" src="/static/img-banner1.jpg"></image>
+        <image class="swiper-image" src="/static/img-banner1.jpg" />
       </swiper-item>
       <swiper-item>
-        <image class="swiper-image" src="/static/img-banner2.jpg"></image>
+        <image class="swiper-image" src="/static/img-banner2.jpg" />
       </swiper-item>
       <swiper-item>
-        <image class="swiper-image" src="/static/img-banner3.jpg"></image>
+        <image class="swiper-image" src="/static/img-banner3.jpg" />
       </swiper-item>
     </swiper>
     <category-block />
@@ -21,9 +21,9 @@
 </template>
 
 <script lang="ts" setup>
-import CategoryBlock from '@/components/categoryBlock.vue';
-import MemberExclusive from '@/components/index/memberExclusive.vue';
-import ProductPreview from '@/components/index/productPreview.vue';
+import CategoryBlock from '../../components/categoryBlock.vue';
+import MemberExclusive from '../../components/index/memberExclusive.vue';
+import ProductPreview from '../../components/index/productPreview.vue';
 
 const playVideo = () => {
   const videoContext = uni.createVideoContext('intro-video');

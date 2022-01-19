@@ -1,14 +1,14 @@
 <template>
   <view class="category-block">
-    <view class="category-item" v-for="item in categoryList" :key="item.id">
-      <image class="category-icon" :src="item.image"></image>
+    <view v-for="item in categoryList" :key="item.id" class="category-item">
+      <image class="category-icon" :src="item.image" />
       <text class="category-text">{{ item.name }}</text>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { categoryList } from '@/data/data.js';
+import { categoryList } from '../data/data';
 </script>
 
 <style lang="scss" scoped>

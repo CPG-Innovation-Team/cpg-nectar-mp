@@ -59,8 +59,8 @@
 </template>
 
 <script lang="ts" setup>
-import CategoryBlock from '@/components/categoryBlock.vue';
-import priceLabel from '@/components/priceLabel.vue';
+import CategoryBlock from '../../components/categoryBlock.vue';
+import priceLabel from '../../components/priceLabel.vue';
 </script>
 
 <style lang="scss" scoped>

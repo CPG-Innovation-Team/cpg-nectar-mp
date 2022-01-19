@@ -1,7 +1,7 @@
 <template>
   <view class="member-exclusive-block">
-    <view class="product-item" v-for="item in memberProduct" :key="item.id">
-      <image class="product-image" :src="item.image"></image>
+    <view v-for="item in memberProduct" :key="item.id" class="product-item">
+      <image class="product-image" :src="item.image" />
       <view class="product-detail">
         <text class="price-label">会员价</text>
         <text class="price-text">￥{{ item.price }}</text>
@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { memberProduct } from '@/data/data.js';
+import { memberProduct } from '../../data/data';
 </script>
 
 <style lang="scss" scoped>

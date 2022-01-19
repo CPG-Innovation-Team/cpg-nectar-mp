@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts" setup>
-import priceLabel from '@/components/priceLabel.vue';
+import priceLabel from '../priceLabel.vue';
 </script>
 
 <style lang="scss" scoped>

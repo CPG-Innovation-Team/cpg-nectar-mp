@@ -3,16 +3,16 @@
     <view class="cart-product-list">
       <cart-product-item
         v-for="(item, key) in cartList"
-        :key="key"
         :id="key"
+        :key="key"
         :name="item.name"
         :image="item.image"
         :price="item.unitPrice * item.amount"
         :amount="item.amount"
         :checked="item.checked"
-        :onCheckedClick="onCheckedClick"
-        :onAmountChange="onAmountChange"
-        :onItemRemove="onItemRemove"
+        :on-checked-click="onCheckedClick"
+        :on-amount-change="onAmountChange"
+        :on-item-remove="onItemRemove"
       />
     </view>
     <view class="cart-status-block">
@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive, watch, onMounted } from 'vue';
-import cartProductItem from '@/components/shoppingCart/cartProductItem.vue';
+import cartProductItem from '../../components/shoppingCart/cartProductItem.vue';
 
 const { cartList } = reactive(getApp().globalData);
 const totalAmount = ref(0);

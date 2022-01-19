@@ -6,17 +6,17 @@
       <text class="user-mobile-text">188******99</text>
     </view>
     <view class="profile-list">
-      <profile-item itemName="订单" />
-      <profile-item itemName="账户设置" />
-      <profile-item itemName="纪念品" />
-      <profile-item itemName="优惠券" />
-      <profile-item itemName="分享" />
+      <profile-item item-name="订单" />
+      <profile-item item-name="账户设置" />
+      <profile-item item-name="纪念品" />
+      <profile-item item-name="优惠券" />
+      <profile-item item-name="分享" />
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import profileItem from '@/components/myProfile/profileItem.vue';
+import profileItem from '../../components/myProfile/profileItem.vue';
 </script>
 
 <style lang="scss" scoped>

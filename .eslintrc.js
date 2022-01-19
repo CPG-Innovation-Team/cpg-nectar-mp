@@ -13,10 +13,12 @@ module.exports = {
   globals: {
     getApp: 'readonly',
     uni: 'readonly',
+    defineProps: 'readonly',
   },
   rules: {
     'max-len': [1, { code: 120 }],
     'vue/max-attributes-per-line': 0,
     'vue/singleline-html-element-content-newline': 0,
+    'object-curly-newline': 0,
   },
 };
