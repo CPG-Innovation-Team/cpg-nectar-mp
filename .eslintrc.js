@@ -3,12 +3,20 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:vue/essential', 'airbnb-base'],
+  extends: ['plugin:vue/vue3-recommended', 'airbnb-base'],
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {},
+  globals: {
+    getApp: 'readonly',
+    uni: 'readonly',
+  },
+  rules: {
+    'max-len': [1, { code: 120 }],
+    'vue/max-attributes-per-line': 0,
+    'vue/singleline-html-element-content-newline': 0,
+  },
 };
