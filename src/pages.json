@@ -29,6 +29,12 @@
       "style": {
         "navigationBarTitleText": "纪念品"
       }
+    },
+    {
+      "path": "pages/myProfile/collectionDetail",
+      "style": {
+        "navigationBarTitleText": "纪念品"
+      }
     }
   ],
   "globalStyle": {

@@ -5,12 +5,24 @@
       <text>Collection Name</text>
     </view>
     <view class="collection-content-list">
-      <image class="nft-image" src="/static/collection/img-nft1.png" />
-      <image class="nft-image" src="/static/collection/img-nft2.png" />
-      <image class="nft-image" src="/static/collection/img-nft3.png" />
-      <image class="nft-image" src="/static/collection/img-nft4.png" />
-      <image class="nft-image" src="/static/collection/img-nft5.png" />
-      <image class="nft-image" src="/static/collection/img-nft6.png" />
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft1.png" />
+      </navigator>
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft2.png" />
+      </navigator>
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft3.png" />
+      </navigator>
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft4.png" />
+      </navigator>
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft5.png" />
+      </navigator>
+      <navigator url="/pages/myProfile/collectionDetail">
+        <image class="nft-image" src="/static/collection/img-nft6.png" />
+      </navigator>
     </view>
   </view>
 </template>
@@ -26,7 +38,7 @@
     align-items: center;
     height: 40rpx;
     line-height: 40rpx;
-    color: #105B63;
+    color: #105b63;
     font-size: 28rpx;
     font-weight: 600;
 
