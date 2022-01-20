@@ -1,13 +1,14 @@
 <template>
-  <view class="profile-item">
+  <navigator class="profile-item" :url="props.navigateTo">
     <text class="item-content-text">{{ props.itemName }}</text>
     <image class="profile-icon" src="/static/ico-entry.svg" />
-  </view>
+  </navigator>
 </template>
 
 <script lang="ts" setup>
 interface IProps {
-  itemName: String;
+  itemName: string;
+  navigateTo: string;
 }
 const props = defineProps<IProps>();
 </script>

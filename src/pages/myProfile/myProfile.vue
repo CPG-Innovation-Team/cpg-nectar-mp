@@ -8,7 +8,7 @@
     <view class="profile-list">
       <profile-item item-name="订单" />
       <profile-item item-name="账户设置" />
-      <profile-item item-name="纪念品" />
+      <profile-item item-name="纪念品" navigate-to="/pages/myProfile/collectionList" />
       <profile-item item-name="优惠券" />
       <profile-item item-name="分享" />
     </view>
