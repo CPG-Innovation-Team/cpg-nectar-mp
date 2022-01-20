@@ -16,8 +16,9 @@ import { categoryList } from '../data/data';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 16rpx;
   width: 686rpx;
+  height: 134rpx;
+  margin-top: 32rpx;
 
   .category-item {
     width: 120rpx;

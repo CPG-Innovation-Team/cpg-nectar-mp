@@ -16,7 +16,7 @@
           <text class="sub-category-text">核果类</text>
         </view>
       </view>
-      <view class="product-list">
+      <scroll-view scroll-y class="product-list">
         <view class="product-item">
           <image class="product-image" src="/static/product/img-product1.png" />
           <view class="product-content">
@@ -53,7 +53,43 @@
           </view>
           <view class="add-cart-button">+</view>
         </view>
-      </view>
+        <view class="product-item">
+          <image class="product-image" src="/static/product/img-product1.png" />
+          <view class="product-content">
+            <view class="product-name">长白山椴树原蜜</view>
+            <view class="product-detail">特别特别好的蜂王浆</view>
+            <price-label price="15.22" />
+          </view>
+          <view class="add-cart-button">+</view>
+        </view>
+        <view class="product-item">
+          <image class="product-image" src="/static/product/img-product1.png" />
+          <view class="product-content">
+            <view class="product-name">长白山椴树原蜜</view>
+            <view class="product-detail">特别特别好的蜂王浆</view>
+            <price-label price="15.22" />
+          </view>
+          <view class="add-cart-button">+</view>
+        </view>
+        <view class="product-item">
+          <image class="product-image" src="/static/product/img-product1.png" />
+          <view class="product-content">
+            <view class="product-name">长白山椴树原蜜</view>
+            <view class="product-detail">特别特别好的蜂王浆</view>
+            <price-label price="15.22" />
+          </view>
+          <view class="add-cart-button">+</view>
+        </view>
+        <view class="product-item">
+          <image class="product-image" src="/static/product/img-product1.png" />
+          <view class="product-content">
+            <view class="product-name">长白山椴树原蜜</view>
+            <view class="product-detail">特别特别好的蜂王浆</view>
+            <price-label price="15.22" />
+          </view>
+          <view class="add-cart-button">+</view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 </template>
@@ -68,8 +104,7 @@ import priceLabel from '../../components/priceLabel.vue';
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 16rpx;
+  height: 100vh;
   background-color: #faf9ff;
 
   .product-container {
@@ -102,7 +137,7 @@ import priceLabel from '../../components/priceLabel.vue';
 
     .product-list {
       width: 574rpx;
-      padding: 36rpx 0 36rpx 24rpx;
+      height: calc(100vh - 206rpx);
       background-color: #ffffff;
     }
   }
@@ -113,7 +148,7 @@ import priceLabel from '../../components/priceLabel.vue';
     flex-direction: row;
     width: 522rpx;
     height: 212rpx;
-    margin-bottom: 20rpx;
+    margin: 24rpx 0 0 24rpx;
     border-radius: 32rpx;
     background-color: #ffffff;
     box-shadow: 0 20rpx 40rpx rgba(0, 0, 0, 0.08);
