@@ -13,4 +13,61 @@ const memberProduct = [
   { id: 3, image: '/static/product/img-product4.png', price: 35.22 },
 ];
 
-export { categoryList, memberProduct };
+const collectionList = {
+  '000001': {
+    image: '/static/collection/img-nft1.png',
+    name: 'Collection Name #1',
+    subtitle: '#1',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC721',
+    assetContract: '0x123456789876543333333',
+  },
+  '000002': {
+    image: '/static/collection/img-nft2.png',
+    name: 'Collection Name #2',
+    subtitle: '#2',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC722',
+    assetContract: '0x123456789876543333334',
+  },
+  '000003': {
+    image: '/static/collection/img-nft3.png',
+    name: 'Collection Name #3',
+    subtitle: '#3',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC723',
+    assetContract: '0x123456789876543333335',
+  },
+  '000004': {
+    image: '/static/collection/img-nft4.png',
+    name: 'Collection Name #4',
+    subtitle: '#4',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC724',
+    assetContract: '0x123456789876543333336',
+  },
+  '000005': {
+    image: '/static/collection/img-nft5.png',
+    name: 'Collection Name #5',
+    subtitle: '#5',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC725',
+    assetContract: '0x123456789876543333337',
+  },
+  '000006': {
+    image: '/static/collection/img-nft6.png',
+    name: 'Collection Name #6',
+    subtitle: '#6',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC726',
+    assetContract: '0x123456789876543333338',
+  },
+};
+
+export { categoryList, memberProduct, collectionList };

@@ -12,6 +12,7 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   globals: {
     getApp: 'readonly',
+    getCurrentPages: 'readonly',
     uni: 'readonly',
     defineProps: 'readonly',
   },

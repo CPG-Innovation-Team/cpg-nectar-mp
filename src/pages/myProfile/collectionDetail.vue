@@ -1,27 +1,38 @@
 <template>
   <view class="collection-detail-page">
-    <image class="nft-image" src="/static/collection/img-nft1.png" />
-    <view class="collection-title">Collection Name#19</view>
-    <view class="collection-subtitle">#19</view>
+    <image class="nft-image" :src="collectionData.image" />
+    <view class="collection-title">{{ collectionData.name }}</view>
+    <view class="collection-subtitle">{{ collectionData.subtitle }}</view>
     <view class="collection-description-block">
       <text class="description-title">Description</text>
-      <text class="description-content">
-        Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper
-        ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.
+      <text class="description-content">{{ collectionData.description }}
       </text>
     </view>
     <view class="collection-description-block">
       <text class="description-title">Token Standard</text>
-      <text class="description-content">ERC721</text>
+      <text class="description-content">{{ collectionData.token }}</text>
     </view>
     <view class="collection-description-block">
       <text class="description-title">Asset contract</text>
-      <text class="description-content">0x123456789876543333333</text>
+      <text class="description-content">{{ collectionData.assetContract }}</text>
     </view>
   </view>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { onMounted, reactive } from 'vue';
+import { collectionList } from '../../data/data';
+
+const pages = getCurrentPages();
+const collectionData = reactive();
+
+onMounted(() => {
+  const { options } = pages[pages.length - 1];
+  Object.keys(collectionList[options.id]).forEach((key) => {
+    collectionData[key] = collectionList[options.id][key];
+  });
+});
+</script>
 
 <style lang="scss" scoped>
 .collection-detail-page {

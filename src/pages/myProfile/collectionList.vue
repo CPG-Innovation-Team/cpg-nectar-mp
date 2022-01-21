@@ -5,23 +5,8 @@
       <text>Collection Name</text>
     </view>
     <view class="collection-content-list" :class="{ hide: !listVisible }">
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft1.png" />
-      </navigator>
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft2.png" />
-      </navigator>
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft3.png" />
-      </navigator>
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft4.png" />
-      </navigator>
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft5.png" />
-      </navigator>
-      <navigator url="/pages/myProfile/collectionDetail">
-        <image class="nft-image" src="/static/collection/img-nft6.png" />
+      <navigator v-for="(item, key) in collectionList" :key="key" :url="`/pages/myProfile/collectionDetail?id=${key}`">
+        <image class="nft-image" :src="item.image" />
       </navigator>
     </view>
   </view>
@@ -29,6 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { collectionList } from '../../data/data';
 
 const listVisible = ref(true);
 const listSwitch = () => {
