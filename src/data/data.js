@@ -1,10 +1,10 @@
-const categoryList = [
-  { id: 0, name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
-  { id: 1, name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
-  { id: 2, name: '花粉', image: '/static/category/ico-pollen.png' },
-  { id: 3, name: '蜂王浆', image: '/static/category/ico-royal-jelly.png' },
-  { id: 4, name: '礼盒', image: '/static/category/ico-gift-box.png' },
-];
+const categoryList = {
+  '000000': { name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
+  '000001': { name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
+  '000002': { name: '花粉', image: '/static/category/ico-pollen.png' },
+  '000003': { name: '蜂王浆', image: '/static/category/ico-royal-jelly.png' },
+  '000004': { name: '礼盒', image: '/static/category/ico-gift-box.png' },
+};
 
 const memberProduct = [
   { id: 0, image: '/static/product/img-product1.png', price: 5.22 },

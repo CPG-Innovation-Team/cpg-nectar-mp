@@ -13,7 +13,7 @@
         <image class="swiper-image" src="/static/img-banner3.jpg" />
       </swiper-item>
     </swiper>
-    <category-block />
+    <category-block :data="categoryList" :on-category-item-click="onCategoryItemClick" />
     <view class="title-text">会员专区</view>
     <member-exclusive />
     <product-preview />
@@ -24,11 +24,17 @@
 import CategoryBlock from '../../components/categoryBlock.vue';
 import MemberExclusive from '../../components/index/memberExclusive.vue';
 import ProductPreview from '../../components/index/productPreview.vue';
+import { categoryList } from '../../data/data';
 
-const playVideo = () => {
+const playVideo = (): void => {
   const videoContext = uni.createVideoContext('intro-video');
   videoContext.requestFullScreen();
   videoContext.play();
+};
+
+const onCategoryItemClick = (id: string): void => {
+  uni.switchTab({ url: '/pages/category/category' });
+  getApp().globalData.categorySelectedId = id;
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <view class="category-page">
-    <category-block />
+    <category-block :data="categoryListData" :on-category-item-click="onCategoryItemClick" />
     <view class="product-container">
       <view class="sub-category-list">
         <view class="sub-category-item active">
@@ -95,8 +95,32 @@
 </template>
 
 <script lang="ts" setup>
+import { reactive } from 'vue';
+import { onShow } from '@dcloudio/uni-app';
 import CategoryBlock from '../../components/categoryBlock.vue';
 import priceLabel from '../../components/priceLabel.vue';
+import { categoryList } from '../../data/data';
+
+const categoryListData = reactive(categoryList);
+
+const switchCategoryTab = (id: string): void => {
+  Object.keys(categoryListData).forEach((key) => {
+    categoryListData[key].selected = false;
+  });
+  categoryListData[id].selected = true;
+};
+
+onShow((): void => {
+  const { categorySelectedId } = getApp().globalData;
+  if (categorySelectedId) {
+    switchCategoryTab(categorySelectedId);
+  }
+});
+
+const onCategoryItemClick = (id: string): void => {
+  getApp().globalData.categorySelectedId = id;
+  switchCategoryTab(id);
+};
 </script>
 
 <style lang="scss" scoped>
