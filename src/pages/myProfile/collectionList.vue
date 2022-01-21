@@ -1,10 +1,10 @@
 <template>
   <view class="collection-list-page">
-    <view class="collection-tab">
-      <image class="arrow-icon" src="/static/ico-arrow-down.svg" />
+    <view class="collection-tab" @click="listSwitch">
+      <image class="arrow-icon" :class="{ rotate: !listVisible }" src="/static/ico-arrow-down.svg" />
       <text>Collection Name</text>
     </view>
-    <view class="collection-content-list">
+    <view class="collection-content-list" :class="{ hide: !listVisible }">
       <navigator url="/pages/myProfile/collectionDetail">
         <image class="nft-image" src="/static/collection/img-nft1.png" />
       </navigator>
@@ -27,7 +27,14 @@
   </view>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+const listVisible = ref(true);
+const listSwitch = () => {
+  listVisible.value = !listVisible.value;
+};
+</script>
 
 <style lang="scss" scoped>
 .collection-list-page {
@@ -46,6 +53,11 @@
       width: 32rpx;
       height: 32rpx;
       margin-right: 8rpx;
+      transition: transform 0.5s ease;
+
+      &.rotate {
+        transform: rotate(-90deg);
+      }
     }
   }
   .collection-content-list {
@@ -54,7 +66,14 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    max-height: 100vh;
     margin-top: 16rpx;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+
+    &.hide {
+      max-height: 0;
+    }
 
     .nft-image {
       width: 336rpx;
