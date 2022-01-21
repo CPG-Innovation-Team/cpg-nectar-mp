@@ -5,8 +5,7 @@
     <view class="collection-subtitle">{{ collectionData.subtitle }}</view>
     <view class="collection-description-block">
       <text class="description-title">Description</text>
-      <text class="description-content">{{ collectionData.description }}
-      </text>
+      <text class="description-content">{{ collectionData.description }}</text>
     </view>
     <view class="collection-description-block">
       <text class="description-title">Token Standard</text>
@@ -23,8 +22,24 @@
 import { onMounted, reactive } from 'vue';
 import { collectionList } from '../../data/data';
 
+interface CollectionData {
+  image: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  token: string;
+  assetContract: string;
+}
+
 const pages = getCurrentPages();
-const collectionData = reactive();
+const collectionData: CollectionData = reactive({
+  image: '',
+  name: '',
+  subtitle: '',
+  description: '',
+  token: '',
+  assetContract: '',
+});
 
 onMounted(() => {
   const { options } = pages[pages.length - 1];
