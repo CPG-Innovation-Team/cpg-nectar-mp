@@ -153,7 +153,7 @@ const onCategoryItemClick = (id: string): void => {
           background-color: #ffffff;
           font-size: 24rpx;
           .sub-category-text {
-            border-bottom: 6rpx solid #105b63;
+            border-bottom: 6rpx solid $uni-color-primary;
           }
         }
       }
@@ -207,7 +207,7 @@ const onCategoryItemClick = (id: string): void => {
       line-height: 80rpx;
       border-top-left-radius: 32rpx;
       border-bottom-right-radius: 32rpx;
-      background-color: #105b63;
+      background-color: $uni-color-primary;
       color: #ffffff;
       font-size: 64rpx;
       text-align: center;

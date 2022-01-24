@@ -22,13 +22,13 @@ export default {
   globalData,
 };
 </script>
-<style>
+<style lang="scss">
 button {
   display: inline-block;
   margin: 0;
   padding: 0;
   border: none;
-  background: #105b63;
+  background-color: $uni-color-primary;
   color: #ffffff;
 }
 </style>

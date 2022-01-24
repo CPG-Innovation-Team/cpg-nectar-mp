@@ -100,7 +100,7 @@ const onCategoryItemClick = (id: string): void => {
     top: 0;
     width: 100vw;
     height: 336rpx;
-    background-color: #105b63;
+    background-color: $uni-color-primary;
   }
 
   .swiper {

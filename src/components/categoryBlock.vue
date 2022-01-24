@@ -53,10 +53,10 @@ const props = defineProps<IProps>();
     &.active {
       .category-icon {
         border-radius: 32rpx;
-        box-shadow: 0 0 12rpx #105b63;
+        box-shadow: 0 0 12rpx $uni-color-primary;
       }
       .category-text {
-        background-color: #105b63;
+        background-color: $uni-color-primary;
         color: #ffffff;
       }
     }

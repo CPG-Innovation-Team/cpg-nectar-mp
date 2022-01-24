@@ -52,7 +52,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .collection-detail-page {
   padding: 32rpx;
-  color: #105b63;
+  color: $uni-color-primary;
 
   .nft-image {
     width: 688rpx;

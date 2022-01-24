@@ -31,7 +31,7 @@ const listSwitch = () => {
     align-items: center;
     height: 40rpx;
     line-height: 40rpx;
-    color: #105b63;
+    color: $uni-color-primary;
     font-size: 28rpx;
     font-weight: 600;
 

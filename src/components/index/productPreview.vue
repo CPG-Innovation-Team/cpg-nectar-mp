@@ -86,12 +86,12 @@ const switchTab = (key: number): void => {
 
     &.active {
       .tab-title {
-        color: #105b63;
+        color: $uni-color-primary;
       }
 
       .tab-detail {
         border-radius: 10rpx;
-        background-color: #105b63;
+        background-color: $uni-color-primary;
         color: #ffffff;
       }
     }
@@ -140,7 +140,7 @@ const switchTab = (key: number): void => {
       line-height: 80rpx;
       border-top-left-radius: 32rpx;
       border-bottom-right-radius: 32rpx;
-      background-color: #105b63;
+      background-color: $uni-color-primary;
       color: #ffffff;
       font-size: 64rpx;
       text-align: center;
