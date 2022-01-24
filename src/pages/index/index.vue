@@ -18,6 +18,13 @@
       </swiper-item>
     </swiper>
     <category-block :data="categoryList" :on-category-item-click="onCategoryItemClick" />
+    <view class="index-recharge-block">
+      <view class="recharge-left-block">
+        <button class="recharge-pay-button">储值支付</button>
+        <text class="description-text">使用余额支付，享更多优惠。</text>
+      </view>
+      <text class="recharge-right-text">去充值 ></text>
+    </view>
     <view class="title-text">会员专区</view>
     <member-exclusive />
     <product-preview />
@@ -106,6 +113,44 @@ const onCategoryItemClick = (id: string): void => {
 
   #intro-video {
     display: none;
+  }
+
+  .index-recharge-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 656rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    margin-top: 28rpx;
+    padding: 16rpx;
+    border-radius: 32rpx;
+    background-color: #f3eddf;
+    color: #1a2632;
+
+    .recharge-left-block {
+      display: flex;
+    flex-direction: row;
+    align-items: center;
+    }
+
+    .recharge-pay-button {
+      height: 54rpx;
+      line-height: 27rpx;
+      padding: 16rpx;
+      font-size: 22rpx;
+    }
+
+    .description-text {
+      margin-left: 18rpx;
+      font-size: 24rpx;
+    }
+
+    .recharge-right-text {
+      font-size: 24rpx;
+      font-weight: bold;
+    }
   }
 }
 </style>
