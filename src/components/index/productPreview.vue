@@ -1,21 +1,15 @@
 <template>
   <view>
     <view class="product-preview-tab">
-      <view class="tab-item active">
-        <view class="tab-title">精选好物</view>
-        <view class="tab-detail">热卖推荐</view>
-      </view>
-      <view class="tab-item">
-        <view class="tab-title">精品抢购</view>
-        <view class="tab-detail">每月惊爆单品</view>
-      </view>
-      <view class="tab-item">
-        <view class="tab-title">多买优惠</view>
-        <view class="tab-detail">两瓶12元/买一送一</view>
-      </view>
-      <view class="tab-item">
-        <view class="tab-title">正大百年</view>
-        <view class="tab-detail">独家商品</view>
+      <view
+        v-for="(item, key) in productPreviewTabData"
+        :key="item.id"
+        :class="{ active: item.selected }"
+        class="tab-item"
+        @click="switchTab(key)"
+      >
+        <view class="tab-title">{{ item.name }}</view>
+        <view class="tab-detail">{{ item.detail }}</view>
       </view>
     </view>
 
@@ -53,7 +47,19 @@
 </template>
 
 <script lang="ts" setup>
+import { reactive } from 'vue';
 import priceLabel from '../priceLabel.vue';
+import { productPreviewTab } from '../../data/data';
+
+const productPreviewTabData = reactive(productPreviewTab);
+productPreviewTabData[0].selected = true;
+
+const switchTab = (key: number): void => {
+  productPreviewTabData.forEach((item) => {
+    item.selected = false;
+  });
+  productPreviewTabData[key].selected = true;
+};
 </script>
 
 <style lang="scss" scoped>

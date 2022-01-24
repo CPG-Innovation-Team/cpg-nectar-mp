@@ -6,6 +6,13 @@ const categoryList = {
   '000004': { name: '礼盒', image: '/static/category/ico-gift-box.png' },
 };
 
+const productPreviewTab = [
+  { id: '000000', name: '精选好物', detail: '热卖推荐' },
+  { id: '000001', name: '精品抢购', detail: '每月惊爆单品' },
+  { id: '000002', name: '多买优惠', detail: '两瓶12元/买一送一' },
+  { id: '000003', name: '正大百年', detail: '独家商品' },
+];
+
 const memberProduct = [
   { id: 0, image: '/static/product/img-product1.png', price: 5.22 },
   { id: 1, image: '/static/product/img-product2.png', price: 3.22 },
@@ -70,4 +77,4 @@ const collectionList = {
   },
 };
 
-export { categoryList, memberProduct, collectionList };
+export { categoryList, memberProduct, productPreviewTab, collectionList };
