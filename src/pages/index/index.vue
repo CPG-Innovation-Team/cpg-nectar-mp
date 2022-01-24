@@ -1,5 +1,6 @@
 <template>
   <view class="index-page">
+    <cover-view v-if="popupVisible" class="mask-layer" />
     <view v-if="popupVisible" class="popup-layer">
       <image class="popup-image" src="/static/img-new-year-popup.svg" />
       <view class="popup-close-button" @click="popopClose" />
@@ -63,6 +64,17 @@ const onCategoryItemClick = (id: string): void => {
   justify-content: center;
   padding-bottom: 80rpx;
   background-color: #faf9ff;
+
+  .mask-layer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0.2;
+    z-index: 900;
+  }
 
   .popup-layer {
     position: absolute;
@@ -131,8 +143,8 @@ const onCategoryItemClick = (id: string): void => {
 
     .recharge-left-block {
       display: flex;
-    flex-direction: row;
-    align-items: center;
+      flex-direction: row;
+      align-items: center;
     }
 
     .recharge-pay-button {
