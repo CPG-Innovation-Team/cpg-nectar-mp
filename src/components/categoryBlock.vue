@@ -2,7 +2,7 @@
   <view class="category-block">
     <view
       v-for="(item, key) in props.data"
-      :key="key"
+      :key="item.id"
       class="category-item"
       :class="{ active: item.selected }"
       @click="onCategoryItemClick(key)"

@@ -1,10 +1,10 @@
-const categoryList = {
-  '000000': { name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
-  '000001': { name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
-  '000002': { name: '花粉', image: '/static/category/ico-pollen.png' },
-  '000003': { name: '蜂王浆', image: '/static/category/ico-royal-jelly.png' },
-  '000004': { name: '礼盒', image: '/static/category/ico-gift-box.png' },
-};
+const categoryList = [
+  { id: '000000', name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
+  { id: '000001', name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
+  { id: '000002', name: '花粉', image: '/static/category/ico-pollen.png' },
+  { id: '000003', name: '蜂王浆', image: '/static/category/ico-royal-jelly.png' },
+  { id: '000004', name: '礼盒', image: '/static/category/ico-gift-box.png' },
+];
 
 const productPreviewTab = [
   { id: '000000', name: '精选好物', detail: '热卖推荐' },

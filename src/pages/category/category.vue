@@ -103,11 +103,11 @@ import { categoryList } from '../../data/data';
 
 const categoryListData = reactive(categoryList);
 
-const switchCategoryTab = (id: string): void => {
-  Object.keys(categoryListData).forEach((key) => {
-    categoryListData[key].selected = false;
+const switchCategoryTab = (key: string): void => {
+  categoryListData.forEach((item) => {
+    item.selected = false;
   });
-  categoryListData[id].selected = true;
+  categoryListData[key].selected = true;
 };
 
 onShow((): void => {
