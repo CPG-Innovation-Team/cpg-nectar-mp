@@ -1,6 +1,6 @@
 <template>
   <view class="index-page">
-    <cover-view v-if="popupVisible" class="mask-layer" />
+    <view v-if="popupVisible" class="mask-layer" />
     <view v-if="popupVisible" class="popup-layer">
       <image class="popup-image" src="/static/img-new-year-popup.svg" />
       <view class="popup-close-button" @click="popopClose" />
