@@ -22,4 +22,13 @@ export default {
   globalData,
 };
 </script>
-<style></style>
+<style>
+button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #105b63;
+  color: #ffffff;
+}
+</style>

@@ -104,8 +104,6 @@ const noCheckedImage = '/static/ico-checkbox.svg';
         text-align: center;
 
         &.amount-adjust-button {
-          background-color: #105b63;
-          color: #ffffff;
           font-size: 32rpx;
         }
         &.amount-number {

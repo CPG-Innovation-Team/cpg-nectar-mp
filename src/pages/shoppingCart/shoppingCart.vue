@@ -96,11 +96,7 @@ const onItemRemove = (id: string): void => {
       width: 200rpx;
       height: 96rpx;
       line-height: 96rpx;
-      margin: 0;
-      border: none;
       border-radius: 24rpx;
-      background-color: #105b63;
-      color: #ffffff;
       font-size: 34rpx;
     }
   }
