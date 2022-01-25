@@ -19,28 +19,28 @@
         <view class="product-name">森蜂园-蜂王浆</view>
         <view class="product-detail">特别特别好的蜂王浆</view>
         <price-label price="5.22" />
-        <view class="add-cart-button">+</view>
+        <add-cart-button :amount-in-cart="2" />
       </view>
       <view class="product-item">
         <image class="product-image" src="/static/product/img-product2.png" />
         <view class="product-name">蜂胶银杏软胶囊</view>
         <view class="product-detail">超级补</view>
         <price-label price="36.88" />
-        <view class="add-cart-button">+</view>
+        <add-cart-button :available="false" />
       </view>
       <view class="product-item">
         <image class="product-image" src="/static/product/img-product3.png" />
         <view class="product-name">茶花蜂花粉</view>
         <view class="product-detail">可能是最好的花粉</view>
         <price-label price="998.00" />
-        <view class="add-cart-button">+</view>
+        <add-cart-button />
       </view>
       <view class="product-item">
         <image class="product-image" src="/static/product/img-product1.png" />
         <view class="product-name">长白山椴树原蜜</view>
         <view class="product-detail">特别特别好的蜂王浆</view>
         <price-label price="15.22" />
-        <view class="add-cart-button">+</view>
+        <add-cart-button />
       </view>
     </view>
   </view>
@@ -49,6 +49,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import priceLabel from '../priceLabel.vue';
+import addCartButton from '../addCartButton.vue';
 import { productPreviewTab } from '../../data/data';
 
 const productPreviewTabData = reactive(productPreviewTab);
@@ -129,21 +130,6 @@ const switchTab = (key: number): void => {
       margin: 16rpx 0 0 24rpx;
       height: 28rpx;
       font-size: 24rpx;
-    }
-
-    .add-cart-button {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 80rpx;
-      height: 80rpx;
-      line-height: 80rpx;
-      border-top-left-radius: 32rpx;
-      border-bottom-right-radius: 32rpx;
-      background-color: $uni-color-primary;
-      color: #ffffff;
-      font-size: 64rpx;
-      text-align: center;
     }
   }
 }
