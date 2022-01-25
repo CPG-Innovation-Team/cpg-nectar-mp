@@ -17,7 +17,7 @@
           <text class="amount-single-box amount-number">{{ props.amount }}</text>
           <button class="amount-single-box amount-adjust-button" @click="onAmountChange(props.id, 1)">+</button>
         </view>
-        <text class="price-text">￥{{ props.price }}</text>
+        <text class="price-text">￥{{ props.price.toFixed(2) }}</text>
       </view>
     </view>
   </view>

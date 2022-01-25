@@ -45,7 +45,7 @@ const calcAmountPrice = () => {
   });
 
   totalAmount.value = amountAccumulator;
-  totalPrice.value = priceAccumulator;
+  totalPrice.value = priceAccumulator.toFixed(2);
 };
 
 onMounted(calcAmountPrice);
