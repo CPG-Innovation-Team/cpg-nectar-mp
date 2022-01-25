@@ -17,77 +17,19 @@
         </view>
       </view>
       <scroll-view scroll-y class="product-list">
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
+        <view v-for="(item, key) in productListData" :key="key" class="product-item">
+          <image mode="aspectFit" class="product-image" :src="item.image" />
           <view class="product-content">
-            <view class="product-name">森蜂园-蜂王浆</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="5.22" />
+            <view class="product-name">{{ item.name }}</view>
+            <view class="product-detail">{{ item.detail }}</view>
+            <price-label :price="item.price.toFixed(2)" />
           </view>
-          <add-cart-button />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product2.png" />
-          <view class="product-content">
-            <view class="product-name">蜂胶银杏软胶囊</view>
-            <view class="product-detail">超级补</view>
-            <price-label price="36.88" />
-          </view>
-          <add-cart-button :available="false" />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product3.png" />
-          <view class="product-content">
-            <view class="product-name">茶花蜂花粉</view>
-            <view class="product-detail">可能是最好的花粉</view>
-            <price-label price="998.00" />
-          </view>
-          <add-cart-button :available="false" />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
-          <view class="product-content">
-            <view class="product-name">长白山椴树原蜜</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="15.22" />
-          </view>
-          <add-cart-button :amount-in-cart="1" />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
-          <view class="product-content">
-            <view class="product-name">长白山椴树原蜜</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="15.22" />
-          </view>
-          <add-cart-button />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
-          <view class="product-content">
-            <view class="product-name">长白山椴树原蜜</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="15.22" />
-          </view>
-          <add-cart-button />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
-          <view class="product-content">
-            <view class="product-name">长白山椴树原蜜</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="15.22" />
-          </view>
-          <add-cart-button />
-        </view>
-        <view class="product-item">
-          <image class="product-image" src="/static/product/img-product1.png" />
-          <view class="product-content">
-            <view class="product-name">长白山椴树原蜜</view>
-            <view class="product-detail">特别特别好的蜂王浆</view>
-            <price-label price="15.22" />
-          </view>
-          <add-cart-button />
+          <add-cart-button
+            :id="key"
+            :available="item.available"
+            :amount-in-cart="item.amount"
+            :on-add-cart-click="onAddCartClick"
+          />
         </view>
       </scroll-view>
     </view>
@@ -95,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
 import { onShow } from '@dcloudio/uni-app';
 import CategoryBlock from '../../components/categoryBlock.vue';
 import priceLabel from '../../components/priceLabel.vue';
@@ -103,12 +45,25 @@ import addCartButton from '../../components/addCartButton.vue';
 import { categoryList } from '../../data/data';
 
 const categoryListData = reactive(categoryList);
+categoryListData[0].selected = true;
+const productListData = reactive({ ...categoryListData[0].product });
+const { cartList } = reactive(getApp().globalData);
 
-const switchCategoryTab = (key: string): void => {
+const switchCategoryTab = (tabKey: string): void => {
   categoryListData.forEach((item) => {
     item.selected = false;
   });
-  categoryListData[key].selected = true;
+  categoryListData[tabKey].selected = true;
+
+  const productDataInActiveTab = categoryListData[tabKey].product;
+
+  Object.keys(productListData).forEach((productKey) => {
+    delete productListData[productKey];
+  });
+
+  Object.keys(productDataInActiveTab).forEach((productKey) => {
+    productListData[productKey] = productDataInActiveTab[productKey];
+  });
 };
 
 onShow((): void => {
@@ -121,6 +76,28 @@ onShow((): void => {
 const onCategoryItemClick = (id: string): void => {
   getApp().globalData.categorySelectedId = id;
   switchCategoryTab(id);
+};
+
+watch(cartList, () => {
+  Object.keys(cartList).forEach((key) => {
+    if (productListData.hasOwnProperty(key)) {
+      productListData[key].amount = cartList[key].amount;
+    }
+  });
+});
+
+const onAddCartClick = (id: string): void => {
+  if (cartList.hasOwnProperty(id)) {
+    cartList[id].amount += 1;
+  } else {
+    cartList[id] = {
+      name: productListData[id].name,
+      image: productListData[id].image,
+      unitPrice: productListData[id].price,
+      amount: 1,
+      checked: true,
+    };
+  }
 };
 </script>
 

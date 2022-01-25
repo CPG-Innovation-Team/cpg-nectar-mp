@@ -72,11 +72,54 @@ const productList = {
 };
 
 const categoryList = [
-  { id: '000000', name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
-  { id: '000001', name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
-  { id: '000002', name: '花粉', image: '/static/category/ico-pollen.png' },
-  { id: '000003', name: '蜂王浆', image: '/static/category/ico-royal-jelly.png' },
-  { id: '000004', name: '礼盒', image: '/static/category/ico-gift-box.png' },
+  {
+    id: '000000',
+    name: '麦卢卡蜂蜜',
+    image: '/static/category/ico-manuka.png',
+    product: {
+      p000010: productList['p000010'],
+      p000001: productList['p000001'],
+    },
+  },
+  {
+    id: '000001',
+    name: '森林蜜',
+    image: '/static/category/ico-forest-honey.png',
+    product: {
+      p000004: productList['p000004'],
+      p000005: productList['p000005'],
+      p000006: productList['p000006'],
+      p000007: productList['p000007'],
+      p000008: productList['p000008'],
+    },
+  },
+  {
+    id: '000002',
+    name: '花粉',
+    image: '/static/category/ico-pollen.png',
+    product: {
+      p000003: productList['p000003'],
+    },
+  },
+  {
+    id: '000003',
+    name: '蜂王浆',
+    image: '/static/category/ico-royal-jelly.png',
+    product: {
+      p000001: productList['p000001'],
+      p000009: productList['p000009'],
+    },
+  },
+  {
+    id: '000004',
+    name: '礼盒',
+    image: '/static/category/ico-gift-box.png',
+    product: {
+      p000001: productList['p000008'],
+      p000002: productList['p000009'],
+      p000010: productList['p000010'],
+    },
+  },
 ];
 
 const productPreview = [
