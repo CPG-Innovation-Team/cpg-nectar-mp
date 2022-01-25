@@ -2,7 +2,7 @@
   <view>
     <view class="product-preview-tab">
       <view
-        v-for="(item, key) in productPreviewTabData"
+        v-for="(item, key) in productPreviewTab"
         :key="item.id"
         :class="{ active: item.selected }"
         class="tab-item"
@@ -14,33 +14,12 @@
     </view>
 
     <view class="product-preview-block">
-      <view class="product-item">
-        <image class="product-image" src="/static/product/img-product1.png" />
-        <view class="product-name">森蜂园-蜂王浆</view>
-        <view class="product-detail">特别特别好的蜂王浆</view>
-        <price-label price="5.22" />
-        <add-cart-button :amount-in-cart="2" />
-      </view>
-      <view class="product-item">
-        <image class="product-image" src="/static/product/img-product2.png" />
-        <view class="product-name">蜂胶银杏软胶囊</view>
-        <view class="product-detail">超级补</view>
-        <price-label price="36.88" />
-        <add-cart-button :available="false" />
-      </view>
-      <view class="product-item">
-        <image class="product-image" src="/static/product/img-product3.png" />
-        <view class="product-name">茶花蜂花粉</view>
-        <view class="product-detail">可能是最好的花粉</view>
-        <price-label price="998.00" />
-        <add-cart-button />
-      </view>
-      <view class="product-item">
-        <image class="product-image" src="/static/product/img-product1.png" />
-        <view class="product-name">长白山椴树原蜜</view>
-        <view class="product-detail">特别特别好的蜂王浆</view>
-        <price-label price="15.22" />
-        <add-cart-button />
+      <view v-for="(item, key) in productListData" :key="key" class="product-item">
+        <image class="product-image" :src="item.image" />
+        <view class="product-name">{{ item.name }}</view>
+        <view class="product-detail">{{ item.detail }}</view>
+        <price-label :price="item.price.toFixed(2)" />
+        <add-cart-button :available="item.available" :amount-in-cart="2" />
       </view>
     </view>
   </view>
@@ -50,16 +29,35 @@
 import { reactive } from 'vue';
 import priceLabel from '../priceLabel.vue';
 import addCartButton from '../addCartButton.vue';
-import { productPreviewTab } from '../../data/data';
+import { productPreview } from '../../data/data';
 
-const productPreviewTabData = reactive(productPreviewTab);
-productPreviewTabData[0].selected = true;
+console.log('productPreview', productPreview);
 
-const switchTab = (key: number): void => {
-  productPreviewTabData.forEach((item) => {
+const productPreviewTab = reactive(productPreview);
+productPreviewTab[0].selected = true;
+const productListData = reactive({ ...productPreviewTab[0].product });
+
+const switchTab = (tabKey: number): void => {
+  productPreviewTab.forEach((item) => {
     item.selected = false;
   });
-  productPreviewTabData[key].selected = true;
+  productPreviewTab[tabKey].selected = true;
+
+  console.log('tabKey', tabKey);
+  console.log('productPreviewTab', productPreviewTab);
+
+  const productDataInActiveTab = productPreviewTab[tabKey].product;
+  console.log('productDataInActiveTab', productDataInActiveTab);
+
+  Object.keys(productListData).forEach((productKey) => {
+    delete productListData[productKey];
+  });
+
+  Object.keys(productDataInActiveTab).forEach((productKey) => {
+    console.log('productKey', productKey, productDataInActiveTab[productKey]);
+
+    productListData[productKey] = productDataInActiveTab[productKey];
+  });
 };
 </script>
 
@@ -104,7 +102,8 @@ const switchTab = (key: number): void => {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 688rpx;
   margin: 24rpx;
 
   .product-item {

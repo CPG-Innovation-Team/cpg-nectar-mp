@@ -1,3 +1,76 @@
+const productList = {
+  p000001: {
+    name: '森蜂园-蜂王浆',
+    image: '/static/product/img-product1.png',
+    detail: '多元微量元素 营养丰富',
+    price: 258,
+    available: true,
+  },
+  p000002: {
+    name: '蜂胶银杏软胶囊',
+    image: '/static/product/img-product2.png',
+    detail: '天然纯净',
+    price: 88,
+    available: false,
+  },
+  p000003: {
+    name: '茶花蜂花粉',
+    image: '/static/product/img-product3.png',
+    detail: '我们只做蜂蜜的搬运工',
+    price: 66.8,
+    available: true,
+  },
+  p000004: {
+    name: '长白山椴树原蜜',
+    image: '/static/product/img-product4.png',
+    detail: '源自长白山原始森林',
+    price: 74,
+    available: true,
+  },
+  p000005: {
+    name: '长白山椴树蜂蜜',
+    image: '/static/product/img-product5.png',
+    detail: '自然结晶 清甜不腻',
+    price: 88.8,
+    available: true,
+  },
+  p000006: {
+    name: '多花蜂蜜 （勺蜜）',
+    image: '/static/product/img-product6.png',
+    detail: '严选多花种蜜源',
+    price: 128.8,
+    available: true,
+  },
+  p000007: {
+    name: '长白山紫椴蜂蜜（勺蜜）',
+    image: '/static/product/img-product7.png',
+    detail: '一勺时光 甜蜜随享',
+    price: 99,
+    available: true,
+  },
+  p000008: {
+    name: '寻蜜蜂蜜礼盒',
+    image: '/static/product/img-product8.png',
+    detail: '简约礼盒，体面礼赠',
+    price: 168.8,
+    available: true,
+  },
+  p000009: {
+    name: '长白山椴树蜂蜜礼盒',
+    image: '/static/product/img-product9.png',
+    detail: '送礼送健康 好蜜人情足',
+    price: 699,
+    available: false,
+  },
+  p000010: {
+    name: '麦卢卡蜂蜜礼盒',
+    image: '/static/product/img-product10.png',
+    detail: 'UMF独麦素活性成分',
+    price: 898.88,
+    available: true,
+  },
+};
+
 const categoryList = [
   { id: '000000', name: '麦卢卡蜂蜜', image: '/static/category/ico-manuka.png' },
   { id: '000001', name: '森林蜜', image: '/static/category/ico-forest-honey.png' },
@@ -6,11 +79,48 @@ const categoryList = [
   { id: '000004', name: '礼盒', image: '/static/category/ico-gift-box.png' },
 ];
 
-const productPreviewTab = [
-  { id: '000000', name: '精选好物', detail: '热卖推荐' },
-  { id: '000001', name: '精品抢购', detail: '每月惊爆单品' },
-  { id: '000002', name: '多买优惠', detail: '两瓶12元/买一送一' },
-  { id: '000003', name: '正大百年', detail: '独家商品' },
+const productPreview = [
+  {
+    id: '000000',
+    name: '精选好物',
+    detail: '热卖推荐',
+    product: {
+      p000001: productList['p000001'],
+      p000002: productList['p000002'],
+      p000010: productList['p000010'],
+    },
+  },
+  {
+    id: '000001',
+    name: '精品抢购',
+    detail: '每月惊爆单品',
+    product: {
+      p000003: productList['p000003'],
+      p000005: productList['p000005'],
+      p000006: productList['p000006'],
+      p000008: productList['p000008'],
+    },
+  },
+  {
+    id: '000002',
+    name: '多买优惠',
+    detail: '两瓶12元/买一送一',
+    product: {
+      p000004: productList['p000004'],
+      p000007: productList['p000007'],
+      p000006: productList['p000006'],
+    },
+  },
+  {
+    id: '000003',
+    name: '正大百年',
+    detail: '独家商品',
+    product: {
+      p000008: productList['p000008'],
+      p000009: productList['p000009'],
+      p000010: productList['p000010'],
+    },
+  },
 ];
 
 const memberProduct = [
@@ -77,4 +187,4 @@ const collectionList = {
   },
 };
 
-export { categoryList, memberProduct, productPreviewTab, collectionList };
+export { categoryList, memberProduct, productPreview, collectionList };
