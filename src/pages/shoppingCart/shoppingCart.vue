@@ -1,6 +1,7 @@
 <template>
   <view class="shopping-cart-page">
-    <view class="cart-product-list">
+    <view v-show="!Object.keys(cartList).length" class="cart-empty-block">购物车空空如也</view>
+    <view v-show="Object.keys(cartList).length" class="cart-product-list">
       <cart-product-item
         v-for="(item, key) in cartList"
         :id="key"
@@ -99,6 +100,13 @@ const onItemRemove = (id: string): void => {
       border-radius: 24rpx;
       font-size: 34rpx;
     }
+  }
+
+  .cart-empty-block {
+    margin-top: 80rpx;
+    color: #666666;
+    font-size: 32rpx;
+    text-align: center;
   }
 }
 </style>
