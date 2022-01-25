@@ -15,7 +15,7 @@
 
     <view class="product-preview-block">
       <view v-for="(item, key) in productListData" :key="key" class="product-item">
-        <image class="product-image" :src="item.image" />
+        <image mode="aspectFit" class="product-image" :src="item.image" />
         <view class="product-name">{{ item.name }}</view>
         <view class="product-detail">{{ item.detail }}</view>
         <price-label :price="item.price.toFixed(2)" />

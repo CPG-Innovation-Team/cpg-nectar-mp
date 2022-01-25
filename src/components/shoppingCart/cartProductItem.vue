@@ -5,7 +5,7 @@
       :src="props.checked ? checkedImage : noCheckedImage"
       @click="onCheckedClick(props.id)"
     />
-    <image class="product-image" :src="props.image" />
+    <image mode="aspectFit" class="product-image" :src="props.image" />
     <view class="product-content-block">
       <view class="product-content-row">
         <text class="product-name">{{ props.name }}</text>
@@ -67,6 +67,7 @@ const noCheckedImage = '/static/ico-checkbox.svg';
     flex-direction: column;
     width: 400rpx;
     height: 160rpx;
+    margin-left: 16rpx;
 
     .product-content-row {
       display: flex;
