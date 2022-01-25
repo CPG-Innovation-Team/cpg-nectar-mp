@@ -31,8 +31,6 @@ import priceLabel from '../priceLabel.vue';
 import addCartButton from '../addCartButton.vue';
 import { productPreview } from '../../data/data';
 
-console.log('productPreview', productPreview);
-
 const productPreviewTab = reactive(productPreview);
 productPreviewTab[0].selected = true;
 const productListData = reactive({ ...productPreviewTab[0].product });
@@ -43,11 +41,7 @@ const switchTab = (tabKey: number): void => {
   });
   productPreviewTab[tabKey].selected = true;
 
-  console.log('tabKey', tabKey);
-  console.log('productPreviewTab', productPreviewTab);
-
   const productDataInActiveTab = productPreviewTab[tabKey].product;
-  console.log('productDataInActiveTab', productDataInActiveTab);
 
   Object.keys(productListData).forEach((productKey) => {
     delete productListData[productKey];
