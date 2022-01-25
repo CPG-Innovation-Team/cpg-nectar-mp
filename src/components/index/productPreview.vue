@@ -19,14 +19,19 @@
         <view class="product-name">{{ item.name }}</view>
         <view class="product-detail">{{ item.detail }}</view>
         <price-label :price="item.price.toFixed(2)" />
-        <add-cart-button :available="item.available" :amount-in-cart="2" />
+        <add-cart-button
+          :id="key"
+          :available="item.available"
+          :amount-in-cart="item.amount"
+          :on-add-cart-click="onAddCartClick"
+        />
       </view>
     </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
 import priceLabel from '../priceLabel.vue';
 import addCartButton from '../addCartButton.vue';
 import { productPreview } from '../../data/data';
@@ -34,6 +39,7 @@ import { productPreview } from '../../data/data';
 const productPreviewTab = reactive(productPreview);
 productPreviewTab[0].selected = true;
 const productListData = reactive({ ...productPreviewTab[0].product });
+const { cartList } = reactive(getApp().globalData);
 
 const switchTab = (tabKey: number): void => {
   productPreviewTab.forEach((item) => {
@@ -48,10 +54,30 @@ const switchTab = (tabKey: number): void => {
   });
 
   Object.keys(productDataInActiveTab).forEach((productKey) => {
-    console.log('productKey', productKey, productDataInActiveTab[productKey]);
-
     productListData[productKey] = productDataInActiveTab[productKey];
   });
+};
+
+watch(cartList, () => {
+  Object.keys(cartList).forEach((key) => {
+    if (productListData.hasOwnProperty(key)) {
+      productListData[key].amount = cartList[key].amount;
+    }
+  });
+});
+
+const onAddCartClick = (id: string): void => {
+  if (cartList.hasOwnProperty(id)) {
+    cartList[id].amount += 1;
+  } else {
+    cartList[id] = {
+      name: productListData[id].name,
+      image: productListData[id].image,
+      unitPrice: productListData[id].price,
+      amount: 1,
+      checked: true,
+    };
+  }
 };
 </script>
 

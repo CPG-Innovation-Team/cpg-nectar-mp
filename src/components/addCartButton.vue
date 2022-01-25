@@ -1,6 +1,6 @@
 <template>
   <view class="add-cart-block">
-    <view v-if="props.available" class="add-cart-button">+</view>
+    <view v-if="props.available" class="add-cart-button" @click="props.onAddCartClick(props.id)">+</view>
     <view v-if="!props.available" class="out-of-stock-text">已售完</view>
     <view v-if="props.amountInCart" class="amount-in-cart">{{ props.amountInCart }}</view>
   </view>
@@ -8,8 +8,10 @@
 
 <script lang="ts" setup>
 interface IProps {
+  id: string;
   amountInCart: number;
   available: boolean;
+  onAddCartClick: () => void;
 }
 const props = withDefaults(defineProps<IProps>(), {
   amountInCart: 0,
