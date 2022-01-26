@@ -49,6 +49,19 @@ categoryListData[0].selected = true;
 const productListData = reactive({ ...categoryListData[0].product });
 const { cartList } = reactive(getApp().globalData);
 
+const onCategoryItemClick = (id: string): void => {
+  getApp().globalData.categorySelectedId = id;
+  switchCategoryTab(id);
+};
+
+const syncCartDataWithProduct = () => {
+  Object.keys(cartList).forEach((key) => {
+    if (productListData.hasOwnProperty(key)) {
+      productListData[key].amount = cartList[key].amount;
+    }
+  });
+};
+
 const switchCategoryTab = (tabKey: string): void => {
   categoryListData.forEach((item) => {
     item.selected = false;
@@ -64,6 +77,8 @@ const switchCategoryTab = (tabKey: string): void => {
   Object.keys(productDataInActiveTab).forEach((productKey) => {
     productListData[productKey] = productDataInActiveTab[productKey];
   });
+
+  syncCartDataWithProduct();
 };
 
 onShow((): void => {
@@ -71,19 +86,12 @@ onShow((): void => {
   if (categorySelectedId) {
     switchCategoryTab(categorySelectedId);
   }
+  syncCartDataWithProduct();
 });
 
-const onCategoryItemClick = (id: string): void => {
-  getApp().globalData.categorySelectedId = id;
-  switchCategoryTab(id);
-};
-
 watch(cartList, () => {
-  Object.keys(cartList).forEach((key) => {
-    if (productListData.hasOwnProperty(key)) {
-      productListData[key].amount = cartList[key].amount;
-    }
-  });
+  syncCartDataWithProduct();
+  uni.setStorageSync('cartList', cartList);
 });
 
 const onAddCartClick = (id: string): void => {

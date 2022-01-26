@@ -27,7 +27,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, watch, onMounted } from 'vue';
+import { ref, reactive, watch } from 'vue';
+import { onShow } from '@dcloudio/uni-app';
 import cartProductItem from '../../components/shoppingCart/cartProductItem.vue';
 
 const { cartList } = reactive(getApp().globalData);
@@ -48,9 +49,10 @@ const calcAmountPrice = () => {
   totalPrice.value = priceAccumulator.toFixed(2);
 };
 
-onMounted(calcAmountPrice);
+onShow(calcAmountPrice);
 watch(cartList, () => {
   calcAmountPrice();
+  uni.setStorageSync('cartList', cartList);
 });
 
 const onCheckedClick = (id: string): void => {

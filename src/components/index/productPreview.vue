@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 import { reactive, watch } from 'vue';
+import { onShow } from '@dcloudio/uni-app';
 import priceLabel from '../priceLabel.vue';
 import addCartButton from '../addCartButton.vue';
 import { productPreview } from '../../data/data';
@@ -40,6 +41,15 @@ const productPreviewTab = reactive(productPreview);
 productPreviewTab[0].selected = true;
 const productListData = reactive({ ...productPreviewTab[0].product });
 const { cartList } = reactive(getApp().globalData);
+
+
+const syncCartDataWithProduct = () => {
+  Object.keys(cartList).forEach((key) => {
+    if (productListData.hasOwnProperty(key)) {
+      productListData[key].amount = cartList[key].amount;
+    }
+  });
+};
 
 const switchTab = (tabKey: number): void => {
   productPreviewTab.forEach((item) => {
@@ -56,14 +66,17 @@ const switchTab = (tabKey: number): void => {
   Object.keys(productDataInActiveTab).forEach((productKey) => {
     productListData[productKey] = productDataInActiveTab[productKey];
   });
+
+  syncCartDataWithProduct();
 };
 
+onShow((): void => {
+  syncCartDataWithProduct();
+});
+
 watch(cartList, () => {
-  Object.keys(cartList).forEach((key) => {
-    if (productListData.hasOwnProperty(key)) {
-      productListData[key].amount = cartList[key].amount;
-    }
-  });
+  syncCartDataWithProduct();
+  uni.setStorageSync('cartList', cartList);
 });
 
 const onAddCartClick = (id: string): void => {

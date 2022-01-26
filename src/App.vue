@@ -5,6 +5,9 @@ const globalData = {
 
 export default {
   globalData,
+  onLaunch() {
+    globalData.cartList = uni.getStorageSync('cartList') || {};   
+  },
 };
 </script>
 <style lang="scss">
