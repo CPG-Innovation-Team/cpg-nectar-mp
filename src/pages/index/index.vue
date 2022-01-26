@@ -50,9 +50,9 @@ const playVideo = (): void => {
   videoContext.play();
 };
 
-const onCategoryItemClick = (id: string): void => {
+const onCategoryItemClick = (index: number): void => {
   uni.switchTab({ url: '/pages/category/category' });
-  getApp().globalData.categorySelectedId = id;
+  getApp().globalData.categorySelectedIndex = index;
 };
 </script>
 

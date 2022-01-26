@@ -49,9 +49,9 @@ categoryListData[0].selected = true;
 const productListData = reactive({ ...categoryListData[0].product });
 const { cartList } = reactive(getApp().globalData);
 
-const onCategoryItemClick = (id: string): void => {
-  getApp().globalData.categorySelectedId = id;
-  switchCategoryTab(id);
+const onCategoryItemClick = (index: number): void => {
+  getApp().globalData.categorySelectedIndex = index;
+  switchCategoryTab(index);
 };
 
 const syncCartDataWithProduct = () => {
@@ -64,13 +64,13 @@ const syncCartDataWithProduct = () => {
   });
 };
 
-const switchCategoryTab = (tabKey: string): void => {
+const switchCategoryTab = (tabIndex: number): void => {
   categoryListData.forEach((item) => {
     item.selected = false;
   });
-  categoryListData[tabKey].selected = true;
+  categoryListData[tabIndex].selected = true;
 
-  const productDataInActiveTab = categoryListData[tabKey].product;
+  const productDataInActiveTab = categoryListData[tabIndex].product;
 
   Object.keys(productListData).forEach((productKey) => {
     delete productListData[productKey];
@@ -84,10 +84,8 @@ const switchCategoryTab = (tabKey: string): void => {
 };
 
 onShow((): void => {
-  const { categorySelectedId } = getApp().globalData;
-  if (categorySelectedId) {
-    switchCategoryTab(categorySelectedId);
-  }
+  const { categorySelectedIndex } = getApp().globalData;
+  switchCategoryTab(categorySelectedIndex);
   syncCartDataWithProduct();
 });
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 const globalData = {
+  categorySelectedIndex: 0,
   cartList: {},
 };
 
