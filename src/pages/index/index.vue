@@ -108,6 +108,7 @@ const onCategoryItemClick = (index: number): void => {
     width: 688rpx;
     height: 396rpx;
     border-radius: 32rpx;
+    overflow: hidden;
 
     .swiper-image {
       width: 688rpx;
