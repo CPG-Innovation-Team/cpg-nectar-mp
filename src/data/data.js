@@ -166,12 +166,12 @@ const productPreview = [
   },
 ];
 
-const memberProduct = [
-  { id: 0, image: '/static/product/img-product1.png', price: 5.22 },
-  { id: 1, image: '/static/product/img-product2.png', price: 3.22 },
-  { id: 2, image: '/static/product/img-product3.png', price: 65.22 },
-  { id: 3, image: '/static/product/img-product4.png', price: 35.22 },
-];
+const memberProduct = {
+  p000004: productList['p000004'],
+  p000008: productList['p000008'],
+  p000006: productList['p000006'],
+  p000003: productList['p000003'],
+};
 
 const collectionList = {
   '000001': {

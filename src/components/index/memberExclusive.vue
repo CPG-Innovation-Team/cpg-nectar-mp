@@ -1,10 +1,10 @@
 <template>
   <view class="member-exclusive-block">
-    <view v-for="item in memberProduct" :key="item.id" class="product-item">
-      <image class="product-image" :src="item.image" />
+    <view v-for="(item, key) in memberProduct" :key="key" class="product-item">
+      <image mode="aspectFit" class="product-image" :src="item.image" />
       <view class="product-detail">
         <text class="price-label">会员价</text>
-        <text class="price-text">￥{{ item.price }}</text>
+        <text class="price-text">￥{{ item.price.toFixed(2) }}</text>
       </view>
     </view>
   </view>
