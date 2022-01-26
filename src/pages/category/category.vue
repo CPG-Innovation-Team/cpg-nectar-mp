@@ -55,9 +55,11 @@ const onCategoryItemClick = (id: string): void => {
 };
 
 const syncCartDataWithProduct = () => {
-  Object.keys(cartList).forEach((key) => {
-    if (productListData.hasOwnProperty(key)) {
+  Object.keys(productListData).forEach((key) => {
+    if (cartList.hasOwnProperty(key)) {
       productListData[key].amount = cartList[key].amount;
+    } else {
+      productListData[key].amount = 0;
     }
   });
 };
