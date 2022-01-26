@@ -77,12 +77,19 @@ const onItemRemove = (id: string): void => {
   justify-content: space-between;
   height: 100vh;
 
+  .cart-product-list {
+    padding-bottom: 132rpx;
+  }
+
   .cart-status-block {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 40rpx;
+    width: calc(100vw - 64rpx);
     padding: 18rpx 32rpx;
     background: #ffffff;
     box-shadow: 0px -20rpx 40rpx rgba(0, 0, 0, 0.05);
