@@ -52,7 +52,7 @@ const listSwitch = () => {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    max-height: 100vh;
+    max-height: 150vh;
     margin-top: 16rpx;
     overflow: hidden;
     transition: max-height 0.5s ease;

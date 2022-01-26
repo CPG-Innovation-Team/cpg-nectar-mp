@@ -228,6 +228,24 @@ const collectionList = {
     token: 'ERC726',
     assetContract: '0x123456789876543333338',
   },
+  '000007': {
+    image: '/static/collection/img-nft7.png',
+    name: 'Collection Name #7',
+    subtitle: '#7',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC727',
+    assetContract: '0x123456789876543333339',
+  },
+  '000008': {
+    image: '/static/collection/img-nft8.png',
+    name: 'Collection Name #8',
+    subtitle: '#8',
+    description:
+      'Ultricies sed tincidunt purus porta ornare eget cras vestibulum dui. Est non at integer nam laoreet ullamcorper ut. Etiam urna semper mi aliquam. Blandit viverra dolor viverra ut aliquam.',
+    token: 'ERC728',
+    assetContract: '0x123456789876543333340',
+  },
 };
 
 export { categoryList, memberProduct, productPreview, collectionList };
