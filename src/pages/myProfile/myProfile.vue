@@ -2,7 +2,7 @@
   <view class="profile-page">
     <view class="user-info">
       <image class="user-avatar" src="/static/ico-avatar.png" />
-      <text class="user-name-text">John Doe</text>
+      <text class="user-name-text">Chris</text>
       <text class="user-mobile-text">188******99</text>
     </view>
     <view class="profile-list">
