@@ -36,6 +36,9 @@
       "style": {
         "navigationBarTitleText": "纪念品"
       }
+    },
+    {
+      "path": "pages/index/webPage"
     }
   ],
   "globalStyle": {

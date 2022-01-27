@@ -11,7 +11,7 @@
       <swiper-item @click="playVideo">
         <image class="swiper-image" src="/static/img-banner1.jpg" />
       </swiper-item>
-      <swiper-item>
+      <swiper-item @click="redirectToWebPage">
         <image class="swiper-image" src="/static/img-banner2.jpg" />
       </swiper-item>
       <swiper-item>
@@ -48,6 +48,11 @@ const playVideo = (): void => {
   const videoContext = uni.createVideoContext('intro-video');
   videoContext.requestFullScreen();
   videoContext.play();
+};
+
+const redirectToWebPage = (): void => {
+  const url = encodeURIComponent('https://www.cpgroup.top');
+  uni.navigateTo({ url: `/pages/index/webPage?url=${url}` });
 };
 
 const onCategoryItemClick = (index: number): void => {
